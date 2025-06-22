@@ -1,2 +1,2 @@
 # gestao-de-bicicletas
-P2 de Eletiva Programação WEB
+P2 de Eletiva Programação WEB (Laravel)
