@@ -33,4 +33,27 @@ class BicicletaController extends Controller
 
         return redirect()->route('bicicleta.index')->with('success', 'Bicicleta cadastrada com sucesso!');
     }
+                        // parametro do tipo Model passada atraves da rota
+    public function edit(Bicicleta $bicicleta) {
+        return view('edit', ['bicicleta' => $bicicleta]);
+    }
+
+                                                // pega informacoes do formulario
+    public function update(Bicicleta $bicicleta, Request $request) {
+        $data = $request->validate([
+            'bic_modelo' => 'required',
+            'bic_fabricante' => 'required',
+            'bic_cor' => 'required',
+            'bic_opcionais' => 'nullable'
+        ]);
+
+        $bicicleta->update($data);
+
+        return redirect()->route('bicicleta.index')->with('success', 'Bicicleta atualizada com sucesso!');
+    }
+
+    public function delete(Bicicleta $bicicleta) {
+        $bicicleta->delete();
+        return redirect()->route('bicicleta.index')->with('success', 'Bicicleta excluída com sucesso!');
+    }
 }

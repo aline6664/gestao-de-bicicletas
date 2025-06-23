@@ -7,7 +7,7 @@
     <title>Cadastro de Bicicleta</title>
 </head>
 <body>
-    <h1>Cadastrar Bicicleta</h1>
+    <h1>Editar Bicicleta</h1>
     <div>
         @if($errors->any())
             <ul>
@@ -18,21 +18,21 @@
         @endif
     </div>
     <section class="container">
-        <form action="{{ route('bicicleta.store') }}" method="POST">
+        <form action="{{ route('bicicleta.update', ['bicicleta' => $bicicleta]) }}" method="POST">
             @csrf <!--insere automaticamente um token de segurança, protege formulários POST-->
-            @method('post')
+            @method('put')
 
             <label for="bic_modelo">Modelo:</label>
-            <input type="text" id="bic_modelo" name="bic_modelo" required><br><br>
+            <input type="text" id="bic_modelo" name="bic_modelo" value="{{ $bicicleta->bic_modelo }}" required><br><br>
 
             <label for="bic_fabricante">Fabricante:</label>
-            <input type="text" id="bic_fabricante" name="bic_fabricante" required><br><br>
+            <input type="text" id="bic_fabricante" name="bic_fabricante" value="{{ $bicicleta->bic_fabricante }}" required><br><br>
 
             <label for="bic_opcionais">Opcionais:</label>
-            <input type="text" id="bic_opcionais" name="bic_opcionais"><br><br>
+            <input type="text" id="bic_opcionais" name="bic_opcionais" value="{{ $bicicleta->bic_opcionais }}"><br><br>
 
             <label for="bic_cor">Cor:</label>
-            <input type="text" id="bic_cor" name="bic_cor" required><br><br>
+            <input type="text" id="bic_cor" name="bic_cor" value="{{ $bicicleta->bic_cor }}" required><br><br>
 
             <button type="submit">Salvar</button>
         </form>
