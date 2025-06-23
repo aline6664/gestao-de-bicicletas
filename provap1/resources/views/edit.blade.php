@@ -4,38 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/stylecadastro.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!--Bootstrap-->
     <title>Cadastro de Bicicleta</title>
 </head>
-<body>
-    <h1>Editar Bicicleta</h1>
-    <div>
+<body class="container py-5 color">
+    <h1 class="mb-4">Editar Bicicleta</h1>
+
+        <!--Mensagem de erro-->
         @if($errors->any())
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
-    </div>
-    <section class="container">
-        <form action="{{ route('bicicleta.update', ['bicicleta' => $bicicleta]) }}" method="POST">
-            @csrf <!--insere automaticamente um token de segurança, protege formulários POST-->
-            @method('put')
 
-            <label for="bic_modelo">Modelo:</label>
-            <input type="text" id="bic_modelo" name="bic_modelo" value="{{ $bicicleta->bic_modelo }}" required><br><br>
+    <form action="{{ route('bicicleta.update', ['bicicleta' => $bicicleta]) }}" method="POST" class="bg-white p-4 shadow rounded w-80 mx-auto">
+        @csrf <!--insere automaticamente um token de segurança, protege formulários POST-->
+        @method('put')
 
-            <label for="bic_fabricante">Fabricante:</label>
-            <input type="text" id="bic_fabricante" name="bic_fabricante" value="{{ $bicicleta->bic_fabricante }}" required><br><br>
+        <div class="mb-3">
+            <label for="bic_modelo" class="form-label">Modelo:</label>
+            <input type="text" id="bic_modelo" name="bic_modelo" value="{{ $bicicleta->bic_modelo }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="bic_fabricante" class="form-label">Fabricante:</label>
+            <input type="text" id="bic_fabricante" name="bic_fabricante" value="{{ $bicicleta->bic_fabricante }}" class="form-control" required>
+        </div>
 
-            <label for="bic_opcionais">Opcionais:</label>
-            <input type="text" id="bic_opcionais" name="bic_opcionais" value="{{ $bicicleta->bic_opcionais }}"><br><br>
+        <div class="mb-3">
+            <label for="bic_opcionais" class="form-label">Opcionais:</label>
+            <input type="text" id="bic_opcionais" name="bic_opcionais" value="{{ $bicicleta->bic_opcionais }}" class="form-control">
+        </div>
 
-            <label for="bic_cor">Cor:</label>
-            <input type="text" id="bic_cor" name="bic_cor" value="{{ $bicicleta->bic_cor }}" required><br><br>
+        <div class="mb-3">
+            <label for="bic_cor" class="form-label">Cor:</label>
+            <input type="text" id="bic_cor" name="bic_cor" value="{{ $bicicleta->bic_cor }}" class="form-control" required>
+        </div>
 
-            <button type="submit">Salvar</button>
-        </form>
-    </section>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="{{ route('bicicleta.index') }}" class="btn btn-danger">Cancelar</a>
+    </form>
 </body>
 </html>
