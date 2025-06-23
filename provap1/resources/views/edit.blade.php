@@ -21,7 +21,7 @@
             </div>
         @endif
 
-    <form action="{{ route('bicicleta.update', ['bicicleta' => $bicicleta]) }}" method="POST" class="bg-white p-4 shadow rounded w-80 mx-auto">
+    <form action="{{ route('bicicleta.update', ['bicicleta' => $bicicleta]) }}" method="POST" class="bg-white p-4 shadow rounded w-50 mx-auto">
         @csrf <!--insere automaticamente um token de segurança, protege formulários POST-->
         @method('put')
 
