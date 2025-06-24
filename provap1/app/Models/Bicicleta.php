@@ -17,3 +17,5 @@ class Bicicleta extends Model
         'bic_cor'
     ];
 }
+
+//Representa a classe bicicleta, define a chave primaria (bic_modelo)

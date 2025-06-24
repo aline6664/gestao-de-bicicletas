@@ -22,3 +22,5 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 }
+
+//Usa um método para registrar os serviços e executa qualquer lógica durante o bootstrap 

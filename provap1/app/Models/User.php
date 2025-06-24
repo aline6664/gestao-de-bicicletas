@@ -46,3 +46,5 @@ class User extends Authenticatable
         ];
     }
 }
+
+//Define campos que podem ser preenchidos e campos ocultos 

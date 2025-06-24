@@ -13,7 +13,7 @@ class BicicletaController extends Controller
         return view('index', ['bicicletas' => $bicicletas]); // passando os dados para a view
     }
 
-    public function create() {
+    public function create() { //Exibe o formulário para criar uma nova bicicleta
         return view('create');
     }
 
@@ -57,3 +57,5 @@ class BicicletaController extends Controller
         return redirect()->route('bicicleta.index')->with('success', 'Bicicleta excluída com sucesso!');
     }
 }
+
+//Reponsável por gerenciar operações da CRUD

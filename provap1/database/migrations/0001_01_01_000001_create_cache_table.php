@@ -33,3 +33,5 @@ return new class extends Migration
         Schema::dropIfExists('cache_locks');
     }
 };
+
+//Cria tabelas para o sistema de cache

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) { //Autentificação 
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -40,10 +40,12 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down(): void  //Remove as tabelas em caso de rollback de migração
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
 };
+
+//Reponsável por criar as tabelas relacionadas a usuários e autentificação 
